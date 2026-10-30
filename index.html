@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koosha Kazemi — koosha@sharif:~$ whoami</title>
+  
+  <meta name="description" content="Koosha Kazemi - Graduate Systems Software Researcher at Sharif University of Technology. Dataplane operating systems, microsecond-scale scheduling, and kernel-bypass runtimes.">
+  <meta name="author" content="Koosha Kazemi">
+
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:title" content="Koosha Kazemi — Systems Researcher">
+  <meta property="og:description" content="Graduate Systems Software Researcher at Sharif University of Technology. Dataplane operating systems, microsecond-scale scheduling, and kernel-bypass runtimes.">
+  <meta property="og:image" content="https://kewsh.github.io/me.jpg">
+  <meta property="og:url" content="https://kewsh.github.io/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Koosha Kazemi — Systems Researcher">
+  <meta name="twitter:description" content="Graduate Systems Software Researcher at Sharif University of Technology.">
+  <meta name="twitter:image" content="https://kewsh.github.io/me.jpg">
+  
+  <link rel="canonical" href="https://kewsh.github.io/">
+
+  <!-- Structured Data / JSON-LD for Google Knowledge Graph & SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Koosha Kazemi",
+    "url": "https://kewsh.github.io/",
+    "image": "https://kewsh.github.io/me.jpg",
+    "jobTitle": "Systems Software Researcher",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Sharif University of Technology"
+    },
+    "alumniOf": {
+      "@type": "Organization",
+      "name": "Shiraz University"
+    },
+    "sameAs": [
+      "https://github.com/Kewsh",
+      "https://scholar.google.com/citations?user=igPScwgAAAAJ&hl=en",
+      "https://linkedin.com/in/koosha-kazemi",
+      "https://arxiv.org/abs/2609.14123"
+    ]
+  }
+  </script>
+  
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  
+  <!-- Monospace Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Theme synchronization script to prevent flash -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="terminal-container">
+    
+    <!-- Top Terminal Status Bar -->
+    <header class="terminal-bar">
+      <div class="bar-left">
+        <span class="term-dot red"></span>
+        <span class="term-dot yellow"></span>
+        <span class="term-dot green"></span>
+        <span class="term-title">koosha@sharif:~ <span class="term-shell">(bash)</span></span>
+      </div>
+      <div class="bar-right">
+        <button class="theme-switch" id="theme-toggle" aria-label="Toggle theme">
+          <span class="prompt-flag">[mode: <span id="theme-label">dark</span>]</span>
+        </button>
+        <script>
+          (function() {
+            var lbl = document.getElementById('theme-label');
+            if (lbl) lbl.textContent = document.documentElement.getAttribute('data-theme') || 'dark';
+          })();
+        </script>
+      </div>
+    </header>
+
+    <!-- Main Terminal Content -->
+    <main class="terminal-body">
+      
+      <!-- Prompt: whoami -->
+      <section class="term-section">
+        <div class="command-line">
+          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~</span>$</span> <span class="command-text">whoami</span>
+        </div>
+
+        <div class="hero-split">
+          <div class="hero-text">
+            <h1 class="hacker-name">Koosha Kazemi</h1>
+            <div class="identity-rows">
+              <div class="id-row"><span class="k">role:</span> <span class="v">Systems Researcher</span></div>
+              <div class="id-row"><span class="k">dept:</span> <span class="v">Computer Engineering, Sharif University of Technology</span></div>
+              <div class="id-row"><span class="k">loc:</span> <span class="v">Nowshahr, Iran</span></div>
+              <div class="id-row"><span class="k">uptime:</span> <span class="v" id="uptime-val" title="Born November 5, 2001">24 years, 11 months, 23 days</span></div>
+              <div class="id-row"><span class="k">mail:</span> <span class="v"><a href="mailto:kooshakazemi@gmail.com">kooshakazemi@gmail.com</a></span></div>
+              <div class="id-row"><span class="k">links:</span> <span class="v quick-links">
+                <a href="cv.pdf" target="_blank" rel="noopener" class="t-link">[cv.pdf]</a>
+                <a href="https://github.com/Kewsh" target="_blank" rel="noopener noreferrer" class="t-link">[github/@Kewsh]</a>
+                <a href="https://linkedin.com/in/koosha-kazemi" target="_blank" rel="noopener noreferrer" class="t-link">[linkedin]</a>
+                <a href="https://scholar.google.com/citations?user=igPScwgAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" class="t-link">[scholar]</a>
+              </span></div>
+            </div>
+          </div>
+
+          <!-- Portrait Picture -->
+          <div class="photo-pane">
+            <div class="photo-frame">
+              <div class="photo-header">me.jpg (2048x2048)</div>
+              <img src="me.jpg" alt="Koosha Kazemi" class="photo-img">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prompt: cat about.md -->
+      <section class="term-section">
+        <div class="command-line">
+          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~</span>$</span> <span class="command-text">cat about.md</span>
+        </div>
+        <div class="output-block">
+          <p>
+            I'm currently a graduate researcher in Software Engineering at <strong>Sharif University of Technology</strong>, where I'm advised by <strong>Prof. Mohammad Izadi</strong>.
+          </p>
+          <p>
+            I'm interested in all things computer systems, with a current focus on <strong>microsecond-scale CPU scheduling</strong>. I also have a couple of years of industry experience building software across the entire stack.
+          </p>
+          <p>
+            Outside of work, I watch a lot of football and play some CS2.
+          </p>
+        </div>
+      </section>
+
+      <!-- Prompt: cd research/ && cat interests.txt -->
+      <section class="term-section">
+        <div class="command-line no-output">
+          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~</span>$</span> <span class="command-text">cd research/</span>
+        </div>
+        <div class="command-line">
+          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~/research</span>$</span> <span class="command-text">cat interests.txt</span>
+        </div>
+        <div class="output-block">
+          <ul class="term-list">
+            <li><span class="cyan">#01:</span> <strong>Dataplane OS &amp; Kernel-Bypass</strong></li>
+            <li><span class="cyan">#02:</span> <strong>Microsecond-Scale Scheduling</strong></li>
+            <li><span class="cyan">#03:</span> <strong>Systems for Machine Learning (MLSys)</strong></li>
+            <li><span class="cyan">#04:</span> <strong>Datacenter Systems &amp; Networking</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Prompt: cat publications.md -->
+      <section class="term-section">
+        <div class="command-line">
+          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~/research</span>$</span> <span class="command-text">cat publications.md</span>
+        </div>
+        
+        <div class="output-block">
+          <div class="paper-entry">
+            <div class="paper-title">
+              <a href="https://arxiv.org/abs/2609.14123" target="_blank" rel="noopener noreferrer">
+                &quot;Grouper: Scheduling Groups for Multi-Tenant Microsecond-Scale Microservices&quot;
+              </a>
+            </div>
+            <div class="paper-meta">
+              <span class="dim">authors:</span> <span class="highlight">Koosha Kazemi</span>, Mohammad Siavashi, Ahmad Siavashi, Mohammad Izadi
+            </div>
+            <div class="paper-meta">
+              <span class="dim">venue:</span> Under review at OSDI '27
+            </div>
+            <div class="paper-links">
+              <a href="grouper.pdf" target="_blank" rel="noopener">[read_pdf]</a>
+              <a href="https://arxiv.org/abs/2609.14123" target="_blank" rel="noopener noreferrer">[arxiv:2609.14123]</a>
+              <button class="cmd-btn" id="btn-bib-grouper" onclick="toggleBibtex('bib-grouper', this)" aria-expanded="false">[show_bibtex]</button>
+            </div>
+
+            <div class="raw-bibtex" id="bib-grouper">
+              <div class="bibtex-bar">
+                <span># bibtex snippet</span>
+                <button class="copy-trigger" onclick="copyBibtex('code-grouper', this)">[copy]</button>
+              </div>
+              <pre id="code-grouper">@article{kazemi2026grouper,
+  title={Grouper: Scheduling Groups for Multi-Tenant Microsecond-Scale Microservices},
+  author={Kazemi, Koosha and Siavashi, Mohammad and Siavashi, Ahmad and Izadi, Mohammad},
+  journal={arXiv preprint arXiv:2609.14123},
+  year={2026},
+  url={https://arxiv.org/abs/2609.14123}
+}</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Terminal Cursor Prompt -->
+      <div class="command-line prompt-end">
+        <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~/research</span>$</span> <span class="term-cursor" aria-hidden="true"></span>
+      </div>
+
+    </main>
+
+    <!-- Terminal Footer -->
+    <footer class="terminal-footer">
+      <div># (c) 2026 Koosha Kazemi &bull; hosted on github.io</div>
+      <div>status: 0</div>
+    </footer>
+
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
