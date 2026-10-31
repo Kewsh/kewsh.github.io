@@ -26,6 +26,8 @@
   --code-bg: #161b22;
   --toast-bg: #238636;
   --toast-text: #ffffff;
+  --selection-bg: var(--prompt-user);
+  --selection-text: #000000;
 
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --max-w: 800px;
@@ -54,6 +56,8 @@
   --code-bg: #f6f8fa;
   --toast-bg: #1a7f37;
   --toast-text: #ffffff;
+  --selection-bg: var(--prompt-user);
+  --selection-text: #ffffff;
 }
 
 /* ==========================================================================
@@ -73,8 +77,8 @@ html {
 }
 
 ::selection {
-  background-color: var(--prompt-user);
-  color: #000000;
+  background-color: var(--selection-bg);
+  color: var(--selection-text);
 }
 
 body {
