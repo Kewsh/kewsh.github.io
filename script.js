@@ -1,6 +1,6 @@
 /**
- * Koosha Kazemi — Hacker Terminal Script
- * Theme toggle (dark/light) & BibTeX copy helper
+ * Koosha Kazemi — Homepage Script
+ * Minimalist Theme Toggle (Dark / Light) & BibTeX Copy Helper
  */
 
 // Toast Notification
@@ -14,17 +14,21 @@ function showToast(msg) {
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
 }
 
-// BibTeX Toggle & Copy Helpers (available immediately)
+// BibTeX Toggle Helper
 window.toggleBibtex = function (id, btn) {
   const el = document.getElementById(id);
   if (!el) return;
   const isShowing = el.classList.toggle('show');
   if (btn) {
-    btn.textContent = isShowing ? '[hide_bibtex]' : '[show_bibtex]';
     btn.setAttribute('aria-expanded', isShowing ? 'true' : 'false');
+    const labelSpan = btn.querySelector('span');
+    if (labelSpan) {
+      labelSpan.textContent = isShowing ? 'Hide BibTeX' : 'BibTeX';
+    }
   }
 };
 
+// Clipboard Copy Fallback
 function fallbackCopy(text, cb) {
   const ta = document.createElement('textarea');
   ta.value = text;
@@ -38,22 +42,28 @@ function fallbackCopy(text, cb) {
     const ok = document.execCommand('copy');
     if (ok && cb) cb();
   } catch (e) {
-    showToast('Failed to copy');
+    showToast('Failed to copy to clipboard');
   }
   document.body.removeChild(ta);
 }
 
-window.copyBibtex = function (id, btn) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  const text = el.innerText.trim();
+// BibTeX Copy Function
+window.copyBibtex = function (codeId, btn) {
+  const codeEl = document.getElementById(codeId);
+  if (!codeEl) return;
+  const text = codeEl.innerText.trim();
 
   function onCopied() {
     showToast('Copied BibTeX snippet to clipboard');
     if (btn) {
-      const orig = btn.textContent;
-      btn.textContent = '[copied!]';
-      setTimeout(() => { btn.textContent = orig; }, 1600);
+      const textSpan = btn.querySelector('.copy-btn-text') || btn;
+      const originalText = textSpan.textContent;
+      textSpan.textContent = 'Copied!';
+      btn.style.borderColor = 'var(--accent)';
+      setTimeout(() => {
+        textSpan.textContent = originalText;
+        btn.style.borderColor = '';
+      }, 1600);
     }
   }
 
@@ -64,64 +74,38 @@ window.copyBibtex = function (id, btn) {
   }
 };
 
-// Theme synchronization and events
+// Initialize Theme & Listeners on DOM Ready
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
-  const themeLabel = document.getElementById('theme-label');
-  const prefersLight = window.matchMedia('(prefers-color-scheme: light)');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-  function getTheme() {
-    return localStorage.getItem('theme') || (prefersLight.matches ? 'light' : 'dark');
+  function getActiveTheme() {
+    return document.documentElement.getAttribute('data-theme') ||
+           localStorage.getItem('theme') ||
+           (prefersDark.matches ? 'dark' : 'light');
   }
 
-  function applyTheme(theme) {
+  function setTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
-    if (themeLabel) {
-      themeLabel.textContent = theme;
-    }
   }
 
-  // Ensure label matches currently active theme
-  const initialTheme = document.documentElement.getAttribute('data-theme') || getTheme();
-  applyTheme(initialTheme);
+  // Set initial theme
+  setTheme(getActiveTheme());
 
+  // Click toggle
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      applyTheme(current === 'dark' ? 'light' : 'dark');
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      setTheme(next);
     });
   }
 
-  prefersLight.addEventListener('change', (e) => {
+  // Listen to OS theme changes if user hasn't explicitly set a preference
+  prefersDark.addEventListener('change', (e) => {
     if (!localStorage.getItem('theme')) {
-      applyTheme(e.matches ? 'light' : 'dark');
+      setTheme(e.matches ? 'dark' : 'light');
     }
   });
-
-  // Dynamic Uptime Calculator (Birth: Nov 5, 2001)
-  const uptimeEl = document.getElementById('uptime-val');
-  if (uptimeEl) {
-    const birthDate = new Date(2001, 10, 5); // Month index 10 = November
-    const now = new Date();
-    let years = now.getFullYear() - birthDate.getFullYear();
-    let months = now.getMonth() - birthDate.getMonth();
-    let days = now.getDate() - birthDate.getDate();
-
-    if (days < 0) {
-      months--;
-      const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-      days += prevMonth.getDate();
-    }
-    if (months < 0) {
-      years--;
-      months += 12;
-    }
-
-    const parts = [];
-    parts.push(`${years} ${years === 1 ? 'year' : 'years'}`);
-    if (months > 0) parts.push(`${months} ${months === 1 ? 'month' : 'months'}`);
-    if (days > 0) parts.push(`${days} ${days === 1 ? 'day' : 'days'}`);
-    uptimeEl.textContent = parts.join(', ');
-  }
 });

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Koosha Kazemi — koosha@sharif:~$ whoami</title>
+  <title>Koosha Kazemi — Systems Researcher</title>
   
   <meta name="description" content="Koosha Kazemi - Graduate Systems Software Researcher at Sharif University of Technology. Dataplane operating systems, microsecond-scale scheduling, and kernel-bypass runtimes.">
   <meta name="author" content="Koosha Kazemi">
@@ -49,16 +49,18 @@
   
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   
-  <!-- Monospace Typography -->
+  <!-- Typography: Newsreader (Editorial Serif), Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- Theme synchronization script to prevent flash -->
   <script>
     (function() {
-      var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', t);
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
     })();
   </script>
 
@@ -66,159 +68,229 @@
 </head>
 <body>
 
-  <div class="terminal-container">
-    
-    <!-- Top Terminal Status Bar -->
-    <header class="terminal-bar">
-      <div class="bar-left">
-        <span class="term-dot red"></span>
-        <span class="term-dot yellow"></span>
-        <span class="term-dot green"></span>
-        <span class="term-title">koosha@sharif:~ <span class="term-shell">(bash)</span></span>
-      </div>
-      <div class="bar-right">
-        <button class="theme-switch" id="theme-toggle" aria-label="Toggle theme">
-          <span class="prompt-flag">[mode: <span id="theme-label">dark</span>]</span>
+  <!-- Navigation Bar -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="brand-link" aria-label="Koosha Kazemi Homepage">
+        <span class="brand-text">Koosha Kazemi</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li class="nav-item-cv"><a href="cv.pdf" target="_blank" rel="noopener" class="nav-cv">CV <span class="ext-arrow" aria-hidden="true">&nearr;</span></a></li>
+        </ul>
+
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle theme">
+          <!-- Sun Icon (shown in dark mode) -->
+          <svg class="theme-icon icon-sun" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode) -->
+          <svg class="theme-icon icon-moon" xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
         </button>
-        <script>
-          (function() {
-            var lbl = document.getElementById('theme-label');
-            if (lbl) lbl.textContent = document.documentElement.getAttribute('data-theme') || 'dark';
-          })();
-        </script>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="site-main">
+
+    <!-- Hero / Profile Intro -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-name">Koosha Kazemi</h1>
+        <p class="hero-tagline">Systems Researcher</p>
+
+        <!-- Social / Contact Links -->
+        <div class="social-links" aria-label="Contact and Social Profiles">
+          <a href="mailto:kooshakazemi@gmail.com" class="social-btn" title="Email">
+            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span>Email</span>
+          </a>
+
+          <a href="cv.pdf" target="_blank" rel="noopener" class="social-btn" title="Curriculum Vitae (PDF)">
+            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>CV</span>
+          </a>
+
+          <a href="https://github.com/Kewsh" target="_blank" rel="noopener noreferrer" class="social-btn" title="GitHub">
+            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <a href="https://scholar.google.com/citations?user=igPScwgAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" class="social-btn" title="Google Scholar">
+            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+            </svg>
+            <span>Scholar</span>
+          </a>
+
+          <a href="https://linkedin.com/in/koosha-kazemi" target="_blank" rel="noopener noreferrer" class="social-btn" title="LinkedIn">
+            <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
       </div>
-    </header>
 
-    <!-- Main Terminal Content -->
-    <main class="terminal-body">
-      
-      <!-- Prompt: whoami -->
-      <section class="term-section">
-        <div class="command-line">
-          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~</span>$</span> <span class="command-text">whoami</span>
+      <div class="hero-avatar-wrap">
+        <img src="me.jpg" alt="Koosha Kazemi" class="hero-avatar" width="160" height="160">
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="page-section">
+      <h2 class="section-title">About</h2>
+      <div class="prose">
+        <p>
+          I'm currently a graduate researcher in Software Engineering at <strong>Sharif University of Technology</strong>, where I'm advised by <strong>Prof. Mohammad Izadi</strong>.
+        </p>
+        <p>
+          I'm interested in all things computer systems, with a current focus on <strong>microsecond-scale CPU scheduling</strong>. I also have a couple of years of industry experience building software across the entire stack.
+        </p>
+        <p>
+          Outside of work, I watch a lot of football and play some CS2.
+        </p>
+      </div>
+    </section>
+
+    <!-- Research Interests Section -->
+    <section id="research" class="page-section">
+      <h2 class="section-title">Research Interests</h2>
+      <div class="interests-grid">
+        <div class="interest-item">
+          <span class="interest-marker">#01</span>
+          <span class="interest-name">Dataplane OS &amp; Kernel-Bypass</span>
         </div>
 
-        <div class="hero-split">
-          <div class="hero-text">
-            <h1 class="hacker-name">Koosha Kazemi</h1>
-            <div class="identity-rows">
-              <div class="id-row"><span class="k">role:</span> <span class="v">Systems Researcher</span></div>
-              <div class="id-row"><span class="k">dept:</span> <span class="v">Computer Engineering, Sharif University of Technology</span></div>
-              <div class="id-row"><span class="k">loc:</span> <span class="v">Nowshahr, Iran</span></div>
-              <div class="id-row"><span class="k">uptime:</span> <span class="v" id="uptime-val" title="Born November 5, 2001">24 years, 11 months, 23 days</span></div>
-              <div class="id-row"><span class="k">mail:</span> <span class="v"><a href="mailto:kooshakazemi@gmail.com">kooshakazemi@gmail.com</a></span></div>
-              <div class="id-row"><span class="k">links:</span> <span class="v quick-links">
-                <a href="cv.pdf" target="_blank" rel="noopener" class="t-link">[cv.pdf]</a>
-                <a href="https://github.com/Kewsh" target="_blank" rel="noopener noreferrer" class="t-link">[github/@Kewsh]</a>
-                <a href="https://linkedin.com/in/koosha-kazemi" target="_blank" rel="noopener noreferrer" class="t-link">[linkedin]</a>
-                <a href="https://scholar.google.com/citations?user=igPScwgAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" class="t-link">[scholar]</a>
-              </span></div>
-            </div>
-          </div>
+        <div class="interest-item">
+          <span class="interest-marker">#02</span>
+          <span class="interest-name">Microsecond-Scale Scheduling</span>
+        </div>
 
-          <!-- Portrait Picture -->
-          <div class="photo-pane">
-            <div class="photo-frame">
-              <div class="photo-header">me.jpg (2048x2048)</div>
-              <img src="me.jpg" alt="Koosha Kazemi" class="photo-img">
-            </div>
-          </div>
+        <div class="interest-item">
+          <span class="interest-marker">#03</span>
+          <span class="interest-name">Systems for Machine Learning (MLSys)</span>
         </div>
-      </section>
 
-      <!-- Prompt: cat about.md -->
-      <section class="term-section">
-        <div class="command-line">
-          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~</span>$</span> <span class="command-text">cat about.md</span>
+        <div class="interest-item">
+          <span class="interest-marker">#04</span>
+          <span class="interest-name">Datacenter Systems &amp; Networking</span>
         </div>
-        <div class="output-block">
-          <p>
-            I'm currently a graduate researcher in Software Engineering at <strong>Sharif University of Technology</strong>, where I'm advised by <strong>Prof. Mohammad Izadi</strong>.
-          </p>
-          <p>
-            I'm interested in all things computer systems, with a current focus on <strong>microsecond-scale CPU scheduling</strong>. I also have a couple of years of industry experience building software across the entire stack.
-          </p>
-          <p>
-            Outside of work, I watch a lot of football and play some CS2.
-          </p>
-        </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Prompt: cd research/ && cat interests.txt -->
-      <section class="term-section">
-        <div class="command-line no-output">
-          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~</span>$</span> <span class="command-text">cd research/</span>
-        </div>
-        <div class="command-line">
-          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~/research</span>$</span> <span class="command-text">cat interests.txt</span>
-        </div>
-        <div class="output-block">
-          <ul class="term-list">
-            <li><span class="cyan">#01:</span> <strong>Dataplane OS &amp; Kernel-Bypass</strong></li>
-            <li><span class="cyan">#02:</span> <strong>Microsecond-Scale Scheduling</strong></li>
-            <li><span class="cyan">#03:</span> <strong>Systems for Machine Learning (MLSys)</strong></li>
-            <li><span class="cyan">#04:</span> <strong>Datacenter Systems &amp; Networking</strong></li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- Prompt: cat publications.md -->
-      <section class="term-section">
-        <div class="command-line">
-          <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~/research</span>$</span> <span class="command-text">cat publications.md</span>
-        </div>
+    <!-- Publications Section -->
+    <section id="publications" class="page-section">
+      <h2 class="section-title">Publications</h2>
+      <div class="publications-list">
         
-        <div class="output-block">
-          <div class="paper-entry">
-            <div class="paper-title">
+        <article class="pub-entry">
+          <div class="pub-header">
+            <h3 class="pub-title">
               <a href="https://arxiv.org/abs/2609.14123" target="_blank" rel="noopener noreferrer">
                 &quot;Grouper: Scheduling Groups for Multi-Tenant Microsecond-Scale Microservices&quot;
               </a>
-            </div>
-            <div class="paper-meta">
-              <span class="dim">authors:</span> <span class="highlight">Koosha Kazemi</span>, Mohammad Siavashi, Ahmad Siavashi, Mohammad Izadi
-            </div>
-            <div class="paper-meta">
-              <span class="dim">venue:</span> Under review
-            </div>
-            <div class="paper-links">
-              <a href="grouper.pdf" target="_blank" rel="noopener">[read_pdf]</a>
-              <a href="https://arxiv.org/abs/2609.14123" target="_blank" rel="noopener noreferrer">[arxiv:2609.14123]</a>
-              <button class="cmd-btn" id="btn-bib-grouper" onclick="toggleBibtex('bib-grouper', this)" aria-expanded="false">[show_bibtex]</button>
-            </div>
+            </h3>
+            <span class="pub-venue-tag">Under review</span>
+          </div>
 
-            <div class="raw-bibtex" id="bib-grouper">
-              <div class="bibtex-bar">
-                <span># bibtex snippet</span>
-                <button class="copy-trigger" onclick="copyBibtex('code-grouper', this)">[copy]</button>
-              </div>
-              <pre id="code-grouper">@article{kazemi2026grouper,
+          <p class="pub-authors">
+            <span class="author-me">Koosha Kazemi</span>, Mohammad Siavashi, Ahmad Siavashi, Mohammad Izadi
+          </p>
+
+          <p class="pub-venue">
+            Under review
+          </p>
+
+          <div class="pub-actions">
+            <a href="grouper.pdf" target="_blank" rel="noopener" class="pub-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>PDF</span>
+            </a>
+
+            <a href="https://arxiv.org/abs/2609.14123" target="_blank" rel="noopener noreferrer" class="pub-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+              </svg>
+              <span>arXiv</span>
+            </a>
+
+            <button type="button" class="pub-btn btn-bibtex" onclick="toggleBibtex('bib-grouper', this)" aria-expanded="false" aria-controls="bib-grouper">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              <span>BibTeX</span>
+            </button>
+          </div>
+
+          <!-- Collapsible BibTeX Box -->
+          <div class="bibtex-container" id="bib-grouper">
+            <div class="bibtex-header">
+              <span class="bibtex-label">BibTeX Snippet</span>
+              <button type="button" class="bibtex-copy-btn" onclick="copyBibtex('code-grouper', this)">
+                <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span class="copy-btn-text">Copy</span>
+              </button>
+            </div>
+            <pre class="bibtex-code"><code id="code-grouper">@article{kazemi2026grouper,
   title={Grouper: Scheduling Groups for Multi-Tenant Microsecond-Scale Microservices},
   author={Kazemi, Koosha and Siavashi, Mohammad and Siavashi, Ahmad and Izadi, Mohammad},
   journal={arXiv preprint arXiv:2609.14123},
   year={2026},
   url={https://arxiv.org/abs/2609.14123}
-}</pre>
-            </div>
+}</code></pre>
           </div>
-        </div>
-      </section>
 
-      <!-- Terminal Cursor Prompt -->
-      <div class="command-line prompt-end">
-        <span class="prompt"><span class="prompt-user">koosha@sharif</span>:<span class="prompt-path">~/research</span>$</span> <span class="term-cursor" aria-hidden="true"></span>
+        </article>
+
       </div>
+    </section>
 
-    </main>
+  </main>
 
-    <!-- Terminal Footer -->
-    <footer class="terminal-footer">
-      <div># (c) 2026 Koosha Kazemi &bull; hosted on github.io</div>
-      <div>status: 0</div>
-    </footer>
+  <!-- Clean Footer (just name and year) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-text">&copy; 2026 Koosha Kazemi</p>
+    </div>
+  </footer>
 
-  </div>
-
+  <!-- Toast Notification Popup -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="script.js"></script>
