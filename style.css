@@ -506,8 +506,12 @@ strong {
 .pub-authors {
   font-size: 0.92rem;
   color: var(--text-secondary);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0;
   line-height: 1.5;
+}
+
+.pub-authors:has(+ .pub-venue) {
+  margin-bottom: 0.3rem;
 }
 
 .author-me {
@@ -520,7 +524,7 @@ strong {
 .pub-venue {
   font-size: 0.88rem;
   color: var(--text-muted);
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   font-style: italic;
 }
 
@@ -530,6 +534,7 @@ strong {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.45rem;
+  margin-top: 1.25rem;
 }
 
 .pub-btn {
